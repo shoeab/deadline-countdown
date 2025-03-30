@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { DeadlineTimerComponent } from './components/deadline-timer/deadline-timer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  standalone: true,
+  imports: [DeadlineTimerComponent],
+  template: `<app-deadline-timer></app-deadline-timer>`,
 })
-export class AppComponent {
-  title = 'deadline-countdown';
-}
+export class AppComponent {}
