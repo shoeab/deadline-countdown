@@ -8,6 +8,7 @@ import { interval, switchMap, tap } from 'rxjs';
 export class DeadlineService {
   private http = inject(HttpClient);
   secondsLeft = signal<number>(0);
+  targetDate = signal<string>('');
 
   constructor() {
     this.startPolling();
@@ -19,7 +20,12 @@ export class DeadlineService {
         switchMap(() =>
           this.http.get<{ secondsLeft: number }>('/api/deadline')
         ),
-        tap((response) => this.secondsLeft.set(response.secondsLeft))
+        tap((response) => {
+          this.secondsLeft.set(response.secondsLeft);
+          this.targetDate.set(
+            new Date(Date.now() + response.secondsLeft * 1000).toString()
+          );
+        })
       )
       .subscribe();
   }

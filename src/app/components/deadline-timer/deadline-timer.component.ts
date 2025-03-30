@@ -8,6 +8,8 @@ import { DeadlineService } from '../../services/deadline.service';
   imports: [CommonModule],
   template: `
     <div class="countdown">
+      <h2>Deadline Count Down Timer</h2>
+      <div class="target-date">Target Date: {{ targetDate() }}</div>
       <p>Seconds left to deadline: {{ secondsLeft() }}</p>
     </div>
   `,
@@ -22,10 +24,16 @@ import { DeadlineService } from '../../services/deadline.service';
         border-radius: 5px;
         background: #f9f9f9;
       }
+      .target-date {
+        font-size: 1rem;
+        color: rgb(1, 27, 54);
+        font-weight: normal;
+      }
     `,
   ],
 })
 export class DeadlineTimerComponent {
   private deadlineService = inject(DeadlineService);
   secondsLeft = computed(() => this.deadlineService.secondsLeft());
+  targetDate = computed(() => this.deadlineService.targetDate());
 }
