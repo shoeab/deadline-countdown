@@ -1,5 +1,10 @@
-# DeadlineCountdown
+# DeadlineCountdown #1
 
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+
+# General coding solution #2
+
+This project is in general-coding/ directory
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
 
 ## Development server
